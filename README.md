@@ -35,6 +35,7 @@ _Our Decision:_ We used the previous method _peekMin()_ to find the index of the
 1. peekMin()
 1. minChildPos(int pos)
 1. removeMin()
+1. toString() --> More Complicated Version
 
 ### Method Algorithms
 
@@ -65,3 +66,7 @@ Since the Heap is a min Heap, the smaller value is always the parent of larger v
 1. Now, to maintain min Heap-ness, need to move the root value down the tree if necessary
 1. If any of the root's children are smaller than the root itself, swap the root and the smaller child
 1. Continue to swap until the value is smaller than both children
+
+#### toString() --> More Complicated
+Create instance variables to hold index and the final index of the next level in the tree. In order to keep track of the final index in the next level, the variable is incremented by an increasing power of two(1,2,4,8,etc.). For each element in the ArrayList, add the element to the return String. If the element's index is equal to the final index in that level, add "\n" to the return String and update the final index for the next level. **Still haven't figured out how to get the branch ASCII to work.**
+
