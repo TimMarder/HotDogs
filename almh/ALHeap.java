@@ -87,6 +87,13 @@ public Integer peekMin()
 * add(Integer)
 * Inserts an element in the heap
 * Postcondition: Tree exhibits heap property.
+*
+* Algorithm:
+* 1. Add addVal to the end of the ArrayList (last element in bottom level of tree, left justified)
+* 2. Compare the value of addVal to its current parent
+*     a. If addVal > parentVal, then addVal is in a valid position and min heap-ness is maintained
+*     b. If addVal < parentVal, swap addVal and parentVal.
+* 3. Repeat the swapping until addVal is greater than its parent or it reaches the root
 *****************************************************/
 public void add( Integer addVal )
 {
@@ -103,6 +110,13 @@ public void add( Integer addVal )
 * removeMin()  ---  means of removing an element from heap
 * Removes and returns least element in heap.
 * Postcondition: Tree maintains heap property.
+*
+* Algorithm:
+* 1. Swap the root of the tree with the rightmost element on the bottom level
+* 2. Remove the last element in the ArrayList (should be where the smallest element was moved to)
+* 3. Now, to maintain min Heap-ness, need to move the root value down the tree if necessary
+* 4. If any of the root's children are smaller than the root itself, swap the root and the smaller child
+* 5. Continue to swap until the value is smaller than both children
 *****************************************************/
 public Integer removeMin()
 {
