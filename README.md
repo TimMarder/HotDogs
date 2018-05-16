@@ -44,8 +44,8 @@ Since the underlying ArrayList contained already has an isEmpty() method, we can
 #### add(Integer addVal)
 1. Add addVal to the end of the ArrayList (last element in bottom level of tree, left justified)
 1. Compare the value of addVal to its current parent
-  1. If addVal > parentVal, then addVal is in a valid position and min heap-ness is maintained
-  1. If addVal < parentVal, swap addVal and parentVal.
+    1. If addVal > parentVal, then addVal is in a valid position and min heap-ness is maintained
+    1. If addVal < parentVal, swap addVal and parentVal.
 1. Repeat the swapping until addVal is greater than its parent or it reaches the root, in which case addVal would be in a valid position in the min Heap (Heap-ness maintained!)
 
 #### toString() --> Simple Version
