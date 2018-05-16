@@ -92,7 +92,7 @@ public void add( Integer addVal )
 {
   int currIndex = _heap.size();
   _heap.add(addVal);
-  while(_heap.get(currIndex) < _heap.get((currIndex - 1) / 2)) {
+  while(_heap.get(currIndex) < _heap.get((currIndex - 1) / 2) && currIndex != 0) {
     swap(currIndex, (currIndex - 1) / 2);
     currIndex = (currIndex - 1) / 2;
   }
@@ -106,20 +106,15 @@ public void add( Integer addVal )
 *****************************************************/
 public Integer removeMin()
 {
-  if (_heap.size() <= 0) {
-    return -1;
+  swap(0,_heap.size() - 1);
+  int currIndex = 0;
+  int retInt = _heap.remove(_heap.size() - 1);
+  while (minChildPos(currIndex) != -1 && (_heap.get(currIndex) > _heap.get(minChildPos(currIndex)))) {
+    int smolChild = minChildPos(currIndex);
+    swap(currIndex,smolChild);
+    currIndex = smolChild;
   }
-  else {
-    swap(0,_heap.size() - 1);
-    int currIndex = 0;
-    int retInt = _heap.remove(_heap.size() - 1);
-    while (minChildPos(currIndex) != -1 && (_heap.get(currIndex) > _heap.get(minChildPos(currIndex)))) {
-      int smolChild = minChildPos(currIndex);
-      swap(currIndex,smolChild);
-      currIndex = smolChild;
-    }
-    return retInt;
-  }
+  return retInt;
 }//O(?)
 
 
